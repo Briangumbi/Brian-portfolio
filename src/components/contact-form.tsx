@@ -1,6 +1,6 @@
 "use client";
 
-import type { FormEvent } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 import { useState } from "react";
 import { site } from "@/data/site";
 
@@ -9,37 +9,30 @@ const MAX_MESSAGE_LENGTH = 1000;
 const labelClasses = "mb-1.5 block text-sm font-medium text-foreground";
 const fieldClasses =
   "w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30";
+const errorClasses = "mt-1.5 text-xs text-red-600";
 
-type Status = "idle" | "submitting" | "success" | "error";
+type ContactFields = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  message: string;
+};
+
+type ContactFormState = ReturnType<typeof useForm<ContactFields>>[0];
 
 export function ContactForm() {
   const [message, setMessage] = useState("");
-  const [status, setStatus] = useState<Status>("idle");
+  const [state, handleSubmit] = useForm<ContactFields>(site.formId);
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setStatus("submitting");
-
-    const form = event.currentTarget;
-    const data = new FormData(form);
-
-    try {
-      const res = await fetch(site.formEndpoint, {
-        method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
-      });
-
-      if (res.ok) {
-        setStatus("success");
-        form.reset();
-        setMessage("");
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
+  if (state.succeeded) {
+    return (
+      <div className="flex flex-col items-center justify-center gap-2 rounded-2xl border border-border bg-surface p-6 text-center sm:p-8">
+        <p role="status" className="text-sm text-accent">
+          Thanks — your message is on its way. I&apos;ll reply within a day
+          or two.
+        </p>
+      </div>
+    );
   }
 
   return (
@@ -48,11 +41,17 @@ export function ContactForm() {
       className="flex flex-col gap-5 rounded-2xl border border-border bg-surface p-6 sm:p-8"
     >
       <div className="grid gap-5 sm:grid-cols-2">
-        <Field label="First name" name="firstName" required />
-        <Field label="Last name" name="lastName" required />
+        <Field label="First name" name="firstName" required errors={state.errors} />
+        <Field label="Last name" name="lastName" required errors={state.errors} />
       </div>
 
-      <Field label="Email address" name="email" type="email" required />
+      <Field
+        label="Email address"
+        name="email"
+        type="email"
+        required
+        errors={state.errors}
+      />
 
       <div>
         <label htmlFor="message" className={labelClasses}>
@@ -69,31 +68,26 @@ export function ContactForm() {
           placeholder="Tell me a bit about your project..."
           className={fieldClasses}
         />
-        <div className="mt-1 text-right text-xs text-muted">
-          {message.length}/{MAX_MESSAGE_LENGTH}
+        <div className="mt-1.5 flex items-start justify-between gap-3">
+          <ValidationError
+            prefix="Message"
+            field="message"
+            errors={state.errors}
+            className={errorClasses}
+          />
+          <span className="ml-auto shrink-0 text-xs text-muted">
+            {message.length}/{MAX_MESSAGE_LENGTH}
+          </span>
         </div>
       </div>
 
       <button
         type="submit"
-        disabled={status === "submitting"}
+        disabled={state.submitting}
         className="inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-medium text-ink-foreground transition-transform duration-200 hover:scale-105 active:scale-95 disabled:opacity-60 disabled:hover:scale-100"
       >
-        {status === "submitting" ? "Sending…" : "Send message"}
+        {state.submitting ? "Sending…" : "Send message"}
       </button>
-
-      {status === "success" && (
-        <p role="status" className="text-sm text-accent">
-          Thanks — your message is on its way. I&apos;ll reply within a day
-          or two.
-        </p>
-      )}
-      {status === "error" && (
-        <p role="alert" className="text-sm text-red-600">
-          Something went wrong. Please try again, or email me directly at{" "}
-          {site.email}.
-        </p>
-      )}
     </form>
   );
 }
@@ -103,11 +97,13 @@ function Field({
   name,
   type = "text",
   required,
+  errors,
 }: {
   label: string;
-  name: string;
+  name: keyof ContactFields;
   type?: string;
   required?: boolean;
+  errors: ContactFormState["errors"];
 }) {
   return (
     <div>
@@ -120,6 +116,12 @@ function Field({
         type={type}
         required={required}
         className={fieldClasses}
+      />
+      <ValidationError
+        prefix={label}
+        field={name}
+        errors={errors}
+        className={errorClasses}
       />
     </div>
   );

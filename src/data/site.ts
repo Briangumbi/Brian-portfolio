@@ -7,8 +7,7 @@ export const site = {
     "I design and build fast, accessible web apps for ambitious teams — from API to interface.",
   status: "Available for freelance work",
   email: "briangumbi3@gmail.com",
-  // Replace with your real Formspree endpoint: https://formspree.io/f/<your-form-id>
-  formEndpoint: "https://formspree.io/f/YOUR_FORM_ID",
+  formId: "maewjoaq",
   social: {
     github: "https://github.com/Briangumbi",
     linkedin: "https://www.linkedin.com/in/briangumbi",
@@ -30,8 +29,8 @@ export const site = {
 export const about = {
   heading: "About Me",
   paragraphs: [
-    "I'm a software developer who enjoys turning ambiguous problems into simple, reliable products. My focus is full-stack web development — from designing APIs to building interfaces people actually enjoy using.",
-    "I care about performance, accessibility, and code that's easy for the next person (often future me) to understand. When I'm not coding, I'm usually reading about system design or tinkering with side projects.",
+    "I build web applications, backend systems, and AI-powered automation that businesses actually rely on — from custom UIs and APIs to workflows that eliminate the manual work eating into your team's time.",
+    "Whether you need a product built from the ground up, solid infrastructure behind the interface, or your repetitive processes running themselves, I design it to work properly the first time.",
   ],
   stats: [
     { label: "Years experience", value: "3+" },
@@ -133,7 +132,7 @@ export type SkillGroup = {
 export const skills: SkillGroup[] = [
   {
     category: "Languages",
-    skills: ["TypeScript", "JavaScript", "Python", "Go", "SQL"],
+    skills: ["TypeScript", "JavaScript", "Python", "Go"],
   },
   {
     category: "Frontend",
@@ -141,11 +140,11 @@ export const skills: SkillGroup[] = [
   },
   {
     category: "Backend",
-    skills: ["Node.js", "PostgreSQL", "REST APIs", "GraphQL"],
+    skills: ["Node.js", "Express", "PostgreSQL", "GraphQL"],
   },
   {
     category: "Tools",
-    skills: ["Git", "Docker", "AWS", "CI/CD"],
+    skills: ["Git", "Docker", "GitHub Actions", "Vercel"],
   },
 ];
 
