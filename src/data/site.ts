@@ -40,6 +40,33 @@ export const about = {
   ],
 };
 
+export type Role = {
+  title: string;
+  company: string;
+  period: string;
+  description: string;
+};
+
+export const experience = {
+  heading: "Experience",
+  roles: [
+    {
+      title: "Software Developer",
+      company: "Company Name",
+      period: "2023 — Present",
+      description:
+        "Placeholder — describe what you built here and the impact it had. One or two sentences is plenty.",
+    },
+    {
+      title: "Junior Developer",
+      company: "Previous Company",
+      period: "2021 — 2023",
+      description:
+        "Placeholder — describe your responsibilities and a key achievement from this role.",
+    },
+  ] satisfies Role[],
+};
+
 export type Project = {
   title: string;
   description: string;

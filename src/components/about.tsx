@@ -1,5 +1,5 @@
-import { Reveal } from "@/components/motion/reveal";
-import { about } from "@/data/site";
+import { Reveal, RevealGroup } from "@/components/motion/reveal";
+import { about, experience } from "@/data/site";
 import { SectionHeading } from "@/components/section-heading";
 
 export function About() {
@@ -17,6 +17,35 @@ export function About() {
               {p}
             </p>
           ))}
+        </Reveal>
+
+        <Reveal delay={0.2} className="mt-16">
+          <h3 className="text-center text-xs font-medium uppercase tracking-wide text-muted">
+            {experience.heading}
+          </h3>
+
+          <RevealGroup className="mt-6 flex flex-col gap-4">
+            {experience.roles.map((role) => (
+              <Reveal key={`${role.title}-${role.company}`}>
+                <article className="rounded-2xl border border-border bg-surface p-6">
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                    <h4 className="text-lg font-semibold tracking-tight">
+                      {role.title}{" "}
+                      <span className="font-normal text-muted">
+                        · {role.company}
+                      </span>
+                    </h4>
+                    <span className="font-mono text-xs text-muted">
+                      {role.period}
+                    </span>
+                  </div>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    {role.description}
+                  </p>
+                </article>
+              </Reveal>
+            ))}
+          </RevealGroup>
         </Reveal>
       </div>
     </section>
