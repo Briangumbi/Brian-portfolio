@@ -3,7 +3,7 @@
 import { motion, type Variants } from "framer-motion";
 import { Mail } from "lucide-react";
 import Link from "next/link";
-import { PortraitPlaceholder } from "@/components/portrait-placeholder";
+import { HeroVisualCarousel } from "@/components/hero-visual-carousel";
 import { TechStackLogos } from "@/components/tech-stack-logos";
 import { about, site } from "@/data/site";
 
@@ -105,7 +105,7 @@ export function Hero() {
           </div>
 
           <motion.div variants={item} className="relative">
-            <PortraitPlaceholder className="aspect-[4/5] w-full" />
+            <HeroVisualCarousel />
 
             <div className="absolute -bottom-6 left-4 right-4 flex items-center justify-between gap-4 rounded-2xl bg-ink px-5 py-4 text-ink-foreground shadow-xl sm:left-6 sm:right-auto sm:w-72">
               <div>
