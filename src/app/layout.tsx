@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Geist, Geist_Mono } from "next/font/google";
+import { Footer } from "@/components/footer";
 import { MotionProvider } from "@/components/motion/motion-provider";
+import { Navbar } from "@/components/navbar";
+import { ThemeProvider } from "@/components/theme-provider";
 import { site } from "@/data/site";
 import "./globals.css";
 
@@ -25,14 +28,20 @@ const displaySerif = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: `${site.name} — ${site.role}`,
+  title: {
+    default: `${site.name} — ${site.role}`,
+    template: `%s — ${site.name}`,
+  },
   description: site.tagline,
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#ffffff",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ede9e3" },
+    { media: "(prefers-color-scheme: dark)", color: "#1c1917" },
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -43,7 +52,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-background text-foreground antialiased selection:bg-accent selection:text-accent-foreground">
-        <MotionProvider>{children}</MotionProvider>
+        <ThemeProvider>
+          <MotionProvider>
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </MotionProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -5,7 +5,7 @@ import { projects } from "@/data/site";
 
 export function Projects() {
   return (
-    <section id="projects" className="border-t border-border/60 px-6 py-24 sm:py-32">
+    <section className="px-6 pt-28 pb-24 sm:pt-32 sm:pb-32">
       <div className="mx-auto max-w-5xl">
         <SectionHeading
           eyebrow="Work"

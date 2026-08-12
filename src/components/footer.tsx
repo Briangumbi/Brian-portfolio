@@ -7,10 +7,7 @@ export function Footer() {
         <p>
           © {new Date().getFullYear()} {site.name}. All rights reserved.
         </p>
-        <a
-          href="#top"
-          className="transition-colors duration-200 hover:text-accent"
-        >
+        <a href="#" className="transition-colors duration-200 hover:text-accent">
           Back to top
         </a>
       </div>

@@ -4,7 +4,7 @@ import { SectionHeading } from "@/components/section-heading";
 
 export function About() {
   return (
-    <section id="about" className="px-4 py-24 sm:px-6 sm:py-32">
+    <section className="px-4 pt-28 pb-24 sm:px-6 sm:pt-32 sm:pb-32">
       <div className="mx-auto max-w-3xl">
         <SectionHeading eyebrow="About" title={about.heading} />
 

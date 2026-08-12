@@ -2,6 +2,7 @@
 
 import { motion, type Variants } from "framer-motion";
 import { Mail } from "lucide-react";
+import Link from "next/link";
 import { PortraitPlaceholder } from "@/components/portrait-placeholder";
 import { TechStackLogos } from "@/components/tech-stack-logos";
 import { about, site } from "@/data/site";
@@ -24,7 +25,7 @@ const item: Variants = {
 
 export function Hero() {
   return (
-    <section id="top" className="px-4 pt-28 sm:px-6 sm:pt-32">
+    <section className="px-4 pt-28 sm:px-6 sm:pt-32">
       <div className="mx-auto max-w-6xl">
         <motion.div
           variants={container}
@@ -66,18 +67,18 @@ export function Hero() {
 
             <motion.div variants={item} className="flex flex-col gap-3">
               <div className="flex flex-wrap items-center gap-3">
-                <a
-                  href="#projects"
+                <Link
+                  href="/projects"
                   className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-medium text-ink-foreground transition-transform duration-200 hover:scale-105 active:scale-95"
                 >
                   View projects
-                </a>
-                <a
-                  href="#contact"
+                </Link>
+                <Link
+                  href="/contact"
                   className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-medium text-foreground transition-colors duration-200 hover:border-foreground/40"
                 >
                   Get in touch
-                </a>
+                </Link>
               </div>
               <span className="flex items-center gap-2 text-sm text-muted">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" />
