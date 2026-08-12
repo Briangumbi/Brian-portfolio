@@ -3,6 +3,7 @@
 import { motion, type Variants } from "framer-motion";
 import { Mail } from "lucide-react";
 import { PortraitPlaceholder } from "@/components/portrait-placeholder";
+import { TechStackLogos } from "@/components/tech-stack-logos";
 import { about, site } from "@/data/site";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -32,13 +33,12 @@ export function Hero() {
           className="grid gap-10 rounded-3xl bg-surface p-6 sm:p-10 lg:grid-cols-2 lg:gap-8 lg:p-14"
         >
           <div className="flex flex-col justify-center gap-6">
-            <motion.span
+            <motion.p
               variants={item}
-              className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-background px-3 py-1 text-xs text-muted"
+              className="text-sm text-muted"
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              {site.location}
-            </motion.span>
+              {site.heroKicker}
+            </motion.p>
 
             <motion.h1
               variants={item}
@@ -60,19 +60,29 @@ export function Hero() {
               {site.tagline}
             </motion.p>
 
-            <motion.div variants={item} className="flex flex-wrap items-center gap-3">
-              <a
-                href="#projects"
-                className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-medium text-ink-foreground transition-transform duration-200 hover:scale-105 active:scale-95"
-              >
-                View projects
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-medium text-foreground transition-colors duration-200 hover:border-foreground/40"
-              >
-                Get in touch
-              </a>
+            <motion.div variants={item}>
+              <TechStackLogos />
+            </motion.div>
+
+            <motion.div variants={item} className="flex flex-col gap-3">
+              <div className="flex flex-wrap items-center gap-3">
+                <a
+                  href="#projects"
+                  className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-medium text-ink-foreground transition-transform duration-200 hover:scale-105 active:scale-95"
+                >
+                  View projects
+                </a>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-medium text-foreground transition-colors duration-200 hover:border-foreground/40"
+                >
+                  Get in touch
+                </a>
+              </div>
+              <span className="flex items-center gap-2 text-sm text-muted">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                {site.status}
+              </span>
             </motion.div>
 
             <motion.dl

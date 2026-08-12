@@ -2,9 +2,10 @@ export const site = {
   name: "Brian Gumbi",
   role: "Software Developer",
   headline: { serif: "Build Better", sans: "Ship Faster" },
+  heroKicker: "Removing repetitive work from small businesses",
   tagline:
     "I design and build fast, accessible web apps for ambitious teams — from API to interface.",
-  location: "Available for remote work",
+  status: "Available for freelance work",
   email: "briangumbi3@gmail.com",
   social: {
     github: "https://github.com/yourusername",
