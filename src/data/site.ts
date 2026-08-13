@@ -39,31 +39,36 @@ export const about = {
   ],
 };
 
-export type Role = {
+export type Milestone = {
   title: string;
-  company: string;
   period: string;
   description: string;
 };
 
 export const experience = {
   heading: "Experience",
-  roles: [
+  intro:
+    "Hands-on experience across the full stack — from web applications to intelligent automation.",
+  milestones: [
     {
-      title: "Software Developer",
-      company: "Company Name",
-      period: "2023 — Present",
+      title: "Full-Stack Web Development",
+      period: "2023 — 2024",
       description:
-        "Placeholder — describe what you built here and the impact it had. One or two sentences is plenty.",
+        "Delivered production web applications end to end: React, Next.js, and TypeScript interfaces styled with Tailwind CSS, backed by Node.js and Express APIs with PostgreSQL and GraphQL handling data. Shipped through Git workflows and deployed on Vercel — comfortable owning a product from schema to screen.",
     },
     {
-      title: "Junior Developer",
-      company: "Previous Company",
-      period: "2021 — 2023",
+      title: "Python & Custom Systems",
+      period: "2024 — 2025",
       description:
-        "Placeholder — describe your responsibilities and a key achievement from this role.",
+        "Expanded into Python and Go to handle the logic and data processing off-the-shelf tools can't — custom scripts, integrations, and backend systems engineered for real business complexity, not just prototypes.",
     },
-  ] satisfies Role[],
+    {
+      title: "AI-Powered Automation",
+      period: "2025 — Present",
+      description:
+        "Now focused on AI-powered automation: designing n8n workflows that connect Google Sheets, Gmail, Slack, and other business tools, turning hours of manual work into systems that run themselves. This is where I create the most leverage for small businesses today.",
+    },
+  ] satisfies Milestone[],
 };
 
 export type Project = {
@@ -73,9 +78,20 @@ export type Project = {
   href?: string;
   repo?: string;
   featured?: boolean;
+  image?: string;
 };
 
 export const projects: Project[] = [
+  {
+    title: "Booking Scheduler App",
+    description:
+      "A full-stack scheduling app — think Calendly, built from scratch. Hosts set weekly availability, slot length, and buffer time; guests book open slots instantly on a public page, with double-booking prevention enforced at the database level via a Postgres EXCLUDE constraint, not just app logic. Full auth flow with email confirmation, plus a host dashboard to manage bookings.",
+    tags: ["Next.js", "Supabase", "PostgreSQL", "Tailwind CSS"],
+    href: "https://booking-scheduler-app.vercel.app",
+    repo: "https://github.com/Briangumbi/booking-scheduler-app",
+    featured: true,
+    image: "/projects/booking-scheduler.png",
+  },
   {
     title: "Realtime Analytics Dashboard",
     description:

@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import { GithubIcon } from "@/components/icons/brand-icons";
 import type { Project } from "@/data/site";
 
@@ -18,18 +19,30 @@ export function ProjectCard({
 }) {
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg active:translate-y-0 active:scale-[0.99]">
-      <div
-        className={`flex h-36 items-center justify-center bg-gradient-to-br ${gradients[index % gradients.length]}`}
-        aria-hidden
-      >
-        <span className="font-serif text-4xl italic text-zinc-900/15">
-          {project.title
-            .split(" ")
-            .map((w) => w[0])
-            .slice(0, 2)
-            .join("")}
-        </span>
-      </div>
+      {project.image ? (
+        <div className="relative h-36 w-full overflow-hidden border-b border-border bg-surface">
+          <Image
+            src={project.image}
+            alt={`${project.title} screenshot`}
+            fill
+            sizes="(min-width: 640px) 50vw, 100vw"
+            className="object-cover object-top"
+          />
+        </div>
+      ) : (
+        <div
+          className={`flex h-36 items-center justify-center bg-gradient-to-br ${gradients[index % gradients.length]}`}
+          aria-hidden
+        >
+          <span className="font-serif text-4xl italic text-zinc-900/15">
+            {project.title
+              .split(" ")
+              .map((w) => w[0])
+              .slice(0, 2)
+              .join("")}
+          </span>
+        </div>
+      )}
 
       <div className="flex flex-1 flex-col gap-4 p-6">
         <div className="flex items-start justify-between gap-3">
