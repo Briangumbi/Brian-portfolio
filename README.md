@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Brian's Portfolio
 
-## Getting Started
+A personal portfolio site built with Next.js — multi-page, light/dark theme support, and an animated hero visual.
 
-First, run the development server:
+**Live repo:** [github.com/Briangumbi/Brian-portfolio](https://github.com/Briangumbi/Brian-portfolio)
+
+## Pages
+
+- **Home** — animated hero with a rotating visual carousel and tech stack
+- **About** — bio and work experience
+- **Projects** — selected project grid
+- **Skills** — technologies grouped by category, with brand icons
+- **Services** — freelance offerings
+- **Contact** — contact form (Formspree) plus direct contact info
+
+## Tech stack
+
+- [Next.js 16](https://nextjs.org/) (App Router) + TypeScript
+- [Tailwind CSS v4](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/) for animation, respecting `prefers-reduced-motion`
+- [next-themes](https://github.com/pacocoursey/next-themes) for light/dark mode with system detection
+- [@formspree/react](https://formspree.io/) for the contact form
+- [Lucide](https://lucide.dev/) icons + hand-picked brand SVGs
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Other scripts:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build   # production build
+npm run start   # serve the production build
+npm run lint    # eslint
+```
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+  app/            # routes (one folder per page)
+  components/     # UI components
+  data/site.ts    # all site content — copy, links, projects, skills, services
+  lib/            # shared utilities
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Most content edits (bio, projects, skills, services, social links) only require changing [`src/data/site.ts`](src/data/site.ts).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Configuration
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The contact form posts to a Formspree endpoint configured via `formId` in `src/data/site.ts`.
