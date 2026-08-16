@@ -93,6 +93,16 @@ export const projects: Project[] = [
     image: "/projects/booking-scheduler.png",
   },
   {
+    title: "Chit",
+    description:
+      "A passbook-style personal finance tracker with first-class support for mobile money wallets (M-Pesa, Tigo Pesa, Airtel Money) alongside banks, cards, and cash. Paste a mobile money confirmation SMS and the amount, direction, fee, and counterparty prefill automatically. Multi-currency net worth, budget alerts, and row-level security scoping every table to its owning user at the database level.",
+    tags: ["Next.js", "Supabase", "PostgreSQL", "Tailwind CSS"],
+    href: "https://personal-finance-tracker-sigma-peach.vercel.app",
+    repo: "https://github.com/Briangumbi/personal-finance-tracker",
+    featured: true,
+    image: "/projects/chit-dashboard.png",
+  },
+  {
     title: "Realtime Analytics Dashboard",
     description:
       "A dashboard for visualizing streaming event data with sub-second updates, built for a small SaaS team to monitor product usage.",

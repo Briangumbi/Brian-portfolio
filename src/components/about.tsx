@@ -19,34 +19,37 @@ export function About() {
           ))}
         </Reveal>
 
-        <Reveal delay={0.2} className="mt-16">
-          <h3 className="text-center text-xs font-medium uppercase tracking-wide text-muted">
+        <Reveal delay={0.2} className="mt-16 text-center">
+          <h3 className="text-xs font-medium uppercase tracking-wide text-muted">
             {experience.heading}
           </h3>
+          <p className="mt-2 text-sm text-muted">{experience.intro}</p>
+        </Reveal>
 
-          <RevealGroup className="mt-6 flex flex-col gap-4">
-            {experience.roles.map((role) => (
-              <Reveal key={`${role.title}-${role.company}`}>
-                <article className="rounded-2xl border border-border bg-surface p-6">
+        <RevealGroup className="mt-8 flex flex-col gap-4">
+          {experience.milestones.map((milestone, index) => (
+            <Reveal key={milestone.title}>
+              <div className="flex gap-4 rounded-2xl border border-border bg-surface p-6">
+                <span className="font-serif text-2xl italic text-muted/50">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div className="flex-1">
                   <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                     <h4 className="text-lg font-semibold tracking-tight">
-                      {role.title}{" "}
-                      <span className="font-normal text-muted">
-                        · {role.company}
-                      </span>
+                      {milestone.title}
                     </h4>
                     <span className="font-mono text-xs text-muted">
-                      {role.period}
+                      {milestone.period}
                     </span>
                   </div>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">
-                    {role.description}
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted">
+                    {milestone.description}
                   </p>
-                </article>
-              </Reveal>
-            ))}
-          </RevealGroup>
-        </Reveal>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </RevealGroup>
       </div>
     </section>
   );
