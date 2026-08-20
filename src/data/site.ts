@@ -114,6 +114,7 @@ export const projects: Project[] = [
     repo: "https://github.com/Briangumbi/thrift-store-website",
     image: "/projects/thrift-store-hero.png",
     year: "2026",
+    wide: true,
   },
   {
     title: "Task Flow",
@@ -122,7 +123,6 @@ export const projects: Project[] = [
     tags: ["React", "IndexedDB", "Tailwind CSS"],
     href: "#",
     repo: "#",
-    wide: true,
     icon: "kanban",
   },
   {
