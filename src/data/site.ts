@@ -77,8 +77,9 @@ export type Project = {
   tags: string[];
   href?: string;
   repo?: string;
-  featured?: boolean;
+  wide?: boolean;
   image?: string;
+  icon?: "kanban" | "terminal" | "gauge" | "cloud-sun" | "layout-template";
   year?: string;
 };
 
@@ -90,7 +91,7 @@ export const projects: Project[] = [
     tags: ["Next.js", "Supabase", "PostgreSQL", "Tailwind CSS"],
     href: "https://booking-scheduler-app.vercel.app",
     repo: "https://github.com/Briangumbi/booking-scheduler-app",
-    featured: true,
+    wide: true,
     image: "/projects/booking-scheduler.png",
     year: "2026",
   },
@@ -101,7 +102,6 @@ export const projects: Project[] = [
     tags: ["Next.js", "Supabase", "PostgreSQL", "Tailwind CSS"],
     href: "https://personal-finance-tracker-sigma-peach.vercel.app",
     repo: "https://github.com/Briangumbi/personal-finance-tracker",
-    featured: true,
     image: "/projects/chit-dashboard.png",
     year: "2026",
   },
@@ -112,7 +112,6 @@ export const projects: Project[] = [
     tags: ["Next.js", "GSAP", "Tailwind CSS", "TypeScript"],
     href: "https://thrift-store-website.vercel.app",
     repo: "https://github.com/Briangumbi/thrift-store-website",
-    featured: true,
     image: "/projects/thrift-store-hero.png",
     year: "2026",
   },
@@ -123,6 +122,8 @@ export const projects: Project[] = [
     tags: ["React", "IndexedDB", "Tailwind CSS"],
     href: "#",
     repo: "#",
+    wide: true,
+    icon: "kanban",
   },
   {
     title: "DevNotes CLI",
@@ -130,6 +131,7 @@ export const projects: Project[] = [
       "A command-line tool for capturing and searching engineering notes without leaving the terminal, with fuzzy search and tagging.",
     tags: ["Node.js", "Ink", "SQLite"],
     repo: "#",
+    icon: "terminal",
   },
   {
     title: "API Rate Limiter",
@@ -137,6 +139,7 @@ export const projects: Project[] = [
       "A drop-in rate-limiting middleware supporting sliding-window and token-bucket strategies, backed by Redis.",
     tags: ["Go", "Redis", "Docker"],
     repo: "#",
+    icon: "gauge",
   },
   {
     title: "Weather Now",
@@ -144,6 +147,7 @@ export const projects: Project[] = [
       "A weather app focused on speed and clarity — hyperlocal forecasts with a clean, distraction-free interface.",
     tags: ["React Native", "Expo"],
     href: "#",
+    icon: "cloud-sun",
   },
   {
     title: "Portfolio Site",
@@ -151,6 +155,8 @@ export const projects: Project[] = [
       "This site — built with Next.js and Framer Motion, focused on elegant, accessible animation across every device.",
     tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
     repo: "#",
+    wide: true,
+    icon: "layout-template",
   },
 ];
 
