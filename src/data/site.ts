@@ -79,6 +79,7 @@ export type Project = {
   repo?: string;
   featured?: boolean;
   image?: string;
+  year?: string;
 };
 
 export const projects: Project[] = [
@@ -91,6 +92,7 @@ export const projects: Project[] = [
     repo: "https://github.com/Briangumbi/booking-scheduler-app",
     featured: true,
     image: "/projects/booking-scheduler.png",
+    year: "2026",
   },
   {
     title: "Chit",
@@ -101,6 +103,7 @@ export const projects: Project[] = [
     repo: "https://github.com/Briangumbi/personal-finance-tracker",
     featured: true,
     image: "/projects/chit-dashboard.png",
+    year: "2026",
   },
   {
     title: "Secondhand & Sons",
@@ -111,6 +114,7 @@ export const projects: Project[] = [
     repo: "https://github.com/Briangumbi/thrift-store-website",
     featured: true,
     image: "/projects/thrift-store-hero.png",
+    year: "2026",
   },
   {
     title: "Task Flow",
@@ -119,7 +123,6 @@ export const projects: Project[] = [
     tags: ["React", "IndexedDB", "Tailwind CSS"],
     href: "#",
     repo: "#",
-    featured: true,
   },
   {
     title: "DevNotes CLI",

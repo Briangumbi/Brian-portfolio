@@ -46,9 +46,14 @@ export function ProjectCard({
 
       <div className="flex flex-1 flex-col gap-4 p-6">
         <div className="flex items-start justify-between gap-3">
-          <h3 className="text-lg font-semibold tracking-tight">
-            {project.title}
-          </h3>
+          <div>
+            <span className="font-mono text-xs text-muted">
+              №{String(index + 1).padStart(2, "0")}
+            </span>
+            <h3 className="mt-1 text-lg font-semibold tracking-tight">
+              {project.title}
+            </h3>
+          </div>
           <div className="flex shrink-0 items-center gap-1">
             {project.repo && (
               <IconLink href={project.repo} label={`${project.title} source code`}>
