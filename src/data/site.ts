@@ -103,13 +103,14 @@ export const projects: Project[] = [
     image: "/projects/chit-dashboard.png",
   },
   {
-    title: "Realtime Analytics Dashboard",
+    title: "Secondhand & Sons",
     description:
-      "A dashboard for visualizing streaming event data with sub-second updates, built for a small SaaS team to monitor product usage.",
-    tags: ["Next.js", "TypeScript", "WebSockets", "PostgreSQL"],
-    href: "#",
-    repo: "#",
+      "An Awwwards-style storefront for a vintage thrift store: a pinned, scroll-scrubbed price-tag hero, full shop-to-checkout flow with instant search and filtering, and a second pinned scroll-scrub on product image galleries. Cart, mock auth, and order history persist to localStorage — openly disclosed in the UI as a design/engineering skeleton, not a live payment system.",
+    tags: ["Next.js", "GSAP", "Tailwind CSS", "TypeScript"],
+    href: "https://thrift-store-website.vercel.app",
+    repo: "https://github.com/Briangumbi/thrift-store-website",
     featured: true,
+    image: "/projects/thrift-store-hero.png",
   },
   {
     title: "Task Flow",
