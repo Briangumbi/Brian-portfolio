@@ -80,20 +80,18 @@ export type Project = {
   wide?: boolean;
   image?: string;
   icon?: "kanban" | "terminal" | "gauge" | "cloud-sun" | "layout-template";
-  year?: string;
 };
 
 export const projects: Project[] = [
   {
-    title: "Booking Scheduler App",
+    title: "Secondhand & Sons",
     description:
-      "A full-stack scheduling app — think Calendly, built from scratch. Hosts set weekly availability, slot length, and buffer time; guests book open slots instantly on a public page, with double-booking prevention enforced at the database level via a Postgres EXCLUDE constraint, not just app logic. Full auth flow with email confirmation, plus a host dashboard to manage bookings.",
-    tags: ["Next.js", "Supabase", "PostgreSQL", "Tailwind CSS"],
-    href: "https://booking-scheduler-app.vercel.app",
-    repo: "https://github.com/Briangumbi/booking-scheduler-app",
+      "An Awwwards-style storefront for a vintage thrift store: a pinned, scroll-scrubbed price-tag hero, full shop-to-checkout flow with instant search and filtering, and a second pinned scroll-scrub on product image galleries. Cart, mock auth, and order history persist to localStorage — openly disclosed in the UI as a design/engineering skeleton, not a live payment system.",
+    tags: ["Next.js", "GSAP", "Tailwind CSS", "TypeScript"],
+    href: "https://thrift-store-website.vercel.app",
+    repo: "https://github.com/Briangumbi/thrift-store-website",
+    image: "/projects/thrift-store-hero.png",
     wide: true,
-    image: "/projects/booking-scheduler.png",
-    year: "2026",
   },
   {
     title: "Chit",
@@ -103,18 +101,16 @@ export const projects: Project[] = [
     href: "https://personal-finance-tracker-sigma-peach.vercel.app",
     repo: "https://github.com/Briangumbi/personal-finance-tracker",
     image: "/projects/chit-dashboard.png",
-    year: "2026",
   },
   {
-    title: "Secondhand & Sons",
+    title: "Booking Scheduler App",
     description:
-      "An Awwwards-style storefront for a vintage thrift store: a pinned, scroll-scrubbed price-tag hero, full shop-to-checkout flow with instant search and filtering, and a second pinned scroll-scrub on product image galleries. Cart, mock auth, and order history persist to localStorage — openly disclosed in the UI as a design/engineering skeleton, not a live payment system.",
-    tags: ["Next.js", "GSAP", "Tailwind CSS", "TypeScript"],
-    href: "https://thrift-store-website.vercel.app",
-    repo: "https://github.com/Briangumbi/thrift-store-website",
-    image: "/projects/thrift-store-hero.png",
-    year: "2026",
+      "A full-stack scheduling app — think Calendly, built from scratch. Hosts set weekly availability, slot length, and buffer time; guests book open slots instantly on a public page, with double-booking prevention enforced at the database level via a Postgres EXCLUDE constraint, not just app logic. Full auth flow with email confirmation, plus a host dashboard to manage bookings.",
+    tags: ["Next.js", "Supabase", "PostgreSQL", "Tailwind CSS"],
+    href: "https://booking-scheduler-app.vercel.app",
+    repo: "https://github.com/Briangumbi/booking-scheduler-app",
     wide: true,
+    image: "/projects/booking-scheduler.png",
   },
   {
     title: "Task Flow",

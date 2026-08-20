@@ -92,20 +92,13 @@ export function ProjectCard({
       )}
 
       <div className="flex flex-1 flex-col gap-4 p-6 sm:p-7">
-        <div className="flex items-start justify-between gap-3">
-          <div>
-            <span className="font-mono text-xs text-muted">
-              №{String(index + 1).padStart(2, "0")}
-            </span>
-            <h3 className="mt-1 text-lg font-semibold tracking-tight sm:text-xl">
-              {project.title}
-            </h3>
-          </div>
-          {project.year && (
-            <span className="shrink-0 font-serif text-sm italic text-accent">
-              {project.year}
-            </span>
-          )}
+        <div>
+          <span className="font-mono text-xs text-muted">
+            №{String(index + 1).padStart(2, "0")}
+          </span>
+          <h3 className="mt-1 text-lg font-semibold tracking-tight sm:text-xl">
+            {project.title}
+          </h3>
         </div>
 
         <p className="line-clamp-3 flex-1 text-sm leading-relaxed text-muted">
