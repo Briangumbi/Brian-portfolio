@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { BitcoinIcon } from "@/components/icons/brand-icons";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { nav, site } from "@/data/site";
 import { cn } from "@/lib/utils";
@@ -70,7 +71,8 @@ export function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link
           href="/"
-          className="font-serif text-lg italic tracking-tight text-foreground"
+          aria-label={`${site.name} — home`}
+          className="flex h-11 w-11 items-center justify-center text-foreground transition-transform duration-200 hover:scale-105 hover:text-[#F7931A]"
           onClick={(event) => {
             setOpen(false);
             if (pathname === "/") {
@@ -79,7 +81,7 @@ export function Navbar() {
             }
           }}
         >
-          {site.name.split(" ")[0]}
+          <BitcoinIcon size={30} />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
