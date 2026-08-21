@@ -140,10 +140,11 @@ export const projects: Project[] = [
   {
     title: "Weather Now",
     description:
-      "A weather app focused on speed and clarity — hyperlocal forecasts with a clean, distraction-free interface.",
-    tags: ["React Native", "Expo"],
-    href: "#",
-    icon: "cloud-sun",
+      "A hyperlocal weather app built as a quiet paper-and-ink instrument instead of a glossy sky-gradient app. The signature piece is a sun-arc timeline from sunrise to sunset with hourly temperature ticks and a live needle tracking real elapsed time. GPS-based conditions via expo-location, city search through Open-Meteo's geocoding API, and a day/night theme that follows the weather's actual state.",
+    tags: ["Expo", "React Native", "TypeScript"],
+    href: "https://dist-psi-eight-58.vercel.app",
+    repo: "https://github.com/Briangumbi/weather-now",
+    image: "/projects/weather-now-hero.png",
   },
   {
     title: "Portfolio Site",

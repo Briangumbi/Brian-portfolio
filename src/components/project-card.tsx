@@ -10,6 +10,7 @@ import Image from "next/image";
 import type { ComponentType } from "react";
 import {
   DockerIcon,
+  ExpoIcon,
   ExpressIcon,
   FramerIcon,
   GitHubActionsIcon,
@@ -38,6 +39,8 @@ const tagIcons: Record<string, IconComponent> = {
   Python: PythonIcon,
   Go: GoIcon,
   React: ReactIcon,
+  "React Native": ReactIcon,
+  Expo: ExpoIcon,
   "Next.js": NextJsIcon,
   "Tailwind CSS": TailwindCssIcon,
   "Framer Motion": FramerIcon,
